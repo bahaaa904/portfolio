@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahaa Emad William — Cybersecurity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #7d8590;
+    --text-dim: #484f58;
+    --accent: #388bfd;
+    --accent-bg: #121d2f;
+    --accent-text: #79c0ff;
+    --green: #2ea043;
+    --green-bg: #0d1f12;
+    --green-text: #56d364;
+    --purple: #8957e5;
+    --purple-bg: #1a1135;
+    --purple-text: #bc8cff;
+    --radius: 10px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .logo { font-size: 18px; font-weight: 600; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-text { flex: 1; }
+  .hero-photo {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    object-fit: cover;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .hero-photo .placeholder-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+  .hero-photo label {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .hero-photo:hover label { opacity: 1; }
+  #photo-input { display: none; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-bg);
+    color: var(--green-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #2ea04340;
+    margin-bottom: 1.25rem;
+  }
+  .badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 { font-size: 38px; font-weight: 600; line-height: 1.2; letter-spacing: -1px; margin-bottom: 1rem; }
+  h1 em { font-style: normal; color: var(--accent-text); }
+  .hero-sub { font-size: 15px; color: var(--text-muted); max-width: 520px; margin-bottom: 2rem; line-height: 1.75; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: var(--surface); }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+  .skill-category { font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
+  .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .skill-tools { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; gap: 12px; }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: var(--accent); }
+  .project-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 12px; }
+  .project-title { font-size: 15px; font-weight: 600; }
+  .project-tag {
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .project-tag.green { background: var(--green-bg); color: var(--green-text); }
+  .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── CERTS ── */
+  .certs { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cert-pill {
+    background: var(--purple-bg);
+    color: var(--purple-text);
+    border: 1px solid #8957e530;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .contact-item:hover { border-color: var(--accent); }
+  .contact-icon {
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    background: var(--accent-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .contact-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+  .contact-val { font-size: 13px; font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 3rem; gap: 2rem; }
+    .hero-photo { width: 120px; height: 120px; }
+    h1 { font-size: 28px; }
+    nav { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Bahaa<span>.</span></div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="badge">Open to opportunities</div>
+    <h1>Penetration Tester<br>&amp; <em>Vulnerability Analyst</em></h1>
+    <p class="hero-sub">Junior cybersecurity professional with hands-on experience in web application security assessments, network scanning, and ethical hacking. CCNA &amp; Security+ certified.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="mailto:bemad540@gmail.com" class="btn-secondary">bemad540@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="hero-photo" id="photo-wrapper">
+    <img id="photo-preview" src="" alt="Bahaa Emad" style="display:none;">
+    <div class="placeholder-text" id="placeholder">📷<br>ضع صورتك<br>هنا</div>
+    <label for="photo-input">📷 تغيير<br>الصورة</label>
+    <input type="file" id="photo-input" accept="image/*">
+  </div>
+</div>
+
+<section id="skills">
+  <div class="section-label">Technical skills</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-category">Security & testing</div>
+      <div class="skill-name">Penetration testing</div>
+      <div class="skill-tools">OWASP Top 10 · Vulnerability assessment · Web app security</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Tools</div>
+      <div class="skill-name">Security tooling</div>
+      <div class="skill-tools">Burp Suite · Nmap · Metasploit · Wireshark · SQLmap · Hydra · Gobuster</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Operating systems</div>
+      <div class="skill-name">Linux & Windows</div>
+      <div class="skill-tools">Kali Linux · Parrot OS · Ubuntu · Windows Server</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Networking</div>
+      <div class="skill-name">Network security</div>
+      <div class="skill-tools">TCP/IP · Routing & switching · Firewalls · VPNs · DNS · DHCP</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Scripting</div>
+      <div class="skill-name">Automation</div>
+      <div class="skill-tools">Bash scripting · Python basics · Reconnaissance · Exploitation</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category">Soft skills</div>
+      <div class="skill-name">Professional</div>
+      <div class="skill-tools">Analytical thinking · Technical report writing · Continuous learning</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">Projects & training</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">Freelance vulnerability assessments</div>
+        <span class="project-tag green">Active</span>
+      </div>
+      <p class="project-desc">Performed automated and manual security assessments on web applications and small-scale networks using Burp Suite, Nmap, and Nikto. Delivered detailed risk reports with risk ratings and mitigation recommendations.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">Home lab — network & attack simulation</div>
+        <span class="project-tag">Lab</span>
+      </div>
+      <p class="project-desc">Designed and configured virtual lab environments using Kali Linux and Parrot OS to simulate real-world attack vectors, credential audits, and network defense scenarios.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">PortSwigger & CTF challenges</div>
+        <span class="project-tag">50+ solved</span>
+      </div>
+      <p class="project-desc">Completed practical labs covering SQL injection, XSS, and authentication flaws on TryHackMe, Hack The Box, and PortSwigger Web Security Academy.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">Digital Egypt Pioneers Initiative (DEPI)</div>
+        <span class="project-tag">Training</span>
+      </div>
+      <p class="project-desc">Intensive specialized training in cybersecurity, network security fundamentals, and ethical hacking workflows as part of the national DEPI program.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Certifications</div>
+  <div class="certs">
+    <div class="cert-pill">🏅 Cisco CCNA — 2026</div>
+    <div class="cert-pill">🛡️ CompTIA Security+ — 2026</div>
+    <div class="cert-pill">🎓 BSc Computer Networking & Cybersecurity — 2026</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-grid">
+    <a href="mailto:bemad540@gmail.com" class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">bemad540@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+201225145969" class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-val">+20 122 514 5969</div>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/bahaa-emad" target="_blank" class="contact-item">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-val">linkedin.com/in/bahaa-emad</div>
+      </div>
+    </a>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-val">Shubra, Cairo — Egypt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Bahaa Emad William · Cybersecurity Portfolio · 2026</footer>
+
+<script>
+  const input = document.getElementById('photo-input');
+  const preview = document.getElementById('photo-preview');
+  const placeholder = document.getElementById('placeholder');
+
+  input.addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+</body>
+</html>
