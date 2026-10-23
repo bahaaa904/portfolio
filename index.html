@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bahaa Emad William — Cybersecurity Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
 
   :root {
     --bg: #0d1117;
@@ -29,12 +30,14 @@
     --radius: 10px;
   }
 
+
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
   }
+
 
   /* ── NAV ── */
   nav {
@@ -59,6 +62,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text); }
+
 
   /* ── HERO ── */
   .hero {
@@ -89,6 +93,7 @@
     object-position: top center;
   }
 
+
   .badge {
     display: inline-flex;
     align-items: center;
@@ -114,9 +119,11 @@
     50% { opacity: 0.4; }
   }
 
+
   h1 { font-size: 38px; font-weight: 600; line-height: 1.2; letter-spacing: -1px; margin-bottom: 1rem; }
   h1 em { font-style: normal; color: var(--accent-text); }
   .hero-sub { font-size: 15px; color: var(--text-muted); max-width: 520px; margin-bottom: 2rem; line-height: 1.75; }
+
 
   .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-primary {
@@ -132,6 +139,7 @@
     transition: opacity 0.2s;
   }
   .btn-primary:hover { opacity: 0.85; }
+
 
   /* ── SECTIONS ── */
   section {
@@ -149,6 +157,7 @@
     margin-bottom: 1.5rem;
   }
 
+
   /* ── ABOUT ── */
   .about-card {
     background: var(--surface);
@@ -161,6 +170,7 @@
   }
   .about-card strong { color: var(--text); }
 
+
   /* ── SKILLS ── */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
   .skill-card {
@@ -172,6 +182,7 @@
   .skill-category { font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
   .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
   .skill-tools { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
 
   /* ── PROJECTS & EXPERIENCE ── */
   .projects-grid { display: grid; gap: 12px; }
@@ -198,6 +209,7 @@
   .project-tag.green { background: var(--green-bg); color: var(--green-text); }
   .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
 
+
   /* ── CERTS ── */
   .certs { display: flex; flex-wrap: wrap; gap: 10px; }
   .cert-pill {
@@ -209,6 +221,7 @@
     padding: 8px 18px;
     border-radius: 20px;
   }
+
 
   /* ── CONTACT ── */
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
@@ -238,6 +251,7 @@
   .contact-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
   .contact-val { font-size: 13px; font-weight: 500; }
 
+
   /* ── FOOTER ── */
   footer {
     text-align: center;
@@ -247,6 +261,7 @@
     border-top: 1px solid var(--border);
     margin-top: 1rem;
   }
+
 
   @media (max-width: 600px) {
     .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 3rem; gap: 2rem; }
@@ -259,31 +274,32 @@
 </head>
 <body>
 
+
 <nav>
   <div class="logo">Bahaa Emad<span>.</span></div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Experience</a>
-    <a href="#contact">Contact</a>
+    <a href="https://bahaaa904.github.io/portfolio/#about">About</a>
+    <a href="https://bahaaa904.github.io/portfolio/#skills">Skills</a>
+    <a href="https://bahaaa904.github.io/portfolio/#projects">Experience</a>
+    <a href="https://bahaaa904.github.io/portfolio/#contact">Contact</a>
   </div>
 </nav>
+
 
 <div class="hero">
   <div class="hero-text">
     <div class="badge">Open to opportunities</div>
-    <h1>Penetration Tester<br>&amp; <em>Vulnerability Analyst</em></h1>
+    <h1>Penetration Tester<br>& <em>Vulnerability Analyst</em></h1>
     <p class="hero-sub"> experience in web application security assessments, network scanning, and ethical hacking.</p>
-    <div class="cta-row">
-      <a href="#contact" class="btn-primary">Get in touch</a>
-    </div>
-  </div>
+</div>
+
 
   <div class="hero-photo">
     <!-- ضع اسم أو مسار صورتك هنا -->
-    <img src="a.jfif" alt="Bahaa Emad William">
+    <img src="https://bahaaa904.github.io/portfolio/a.jfif" alt="Bahaa Emad William">
   </div>
 </div>
+
 
 <section id="about">
   <div class="section-label">About Me</div>
@@ -292,17 +308,18 @@
   </div>
 </section>
 
+
 <section id="skills">
   <div class="section-label">Technical Skills</div>
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-category">Core Focus</div>
       <div class="skill-name">Penetration Testing</div>
-      <div class="skill-tools">Web &amp; Network Security, Vulnerability Assessment</div>
+      <div class="skill-tools">Web & Network Security, Vulnerability Assessment</div>
     </div>
     <div class="skill-card">
       <div class="skill-category">Operating Systems</div>
-      <div class="skill-name">Linux &amp; Security Distros</div>
+      <div class="skill-name">Linux & Security Distros</div>
       <div class="skill-tools">Kali Linux, Ubuntu, Bash Scripting</div>
     </div>
     <div class="skill-card">
@@ -318,6 +335,7 @@
   </div>
 </section>
 
+
 <section id="certifications">
   <div class="section-label">Certifications</div>
   <div class="certs">
@@ -327,8 +345,9 @@
   </div>
 </section>
 
+
 <section id="projects">
-  <div class="section-label">Experience &amp; Training</div>
+  <div class="section-label">Experience & Training</div>
   <div class="projects-grid">
     <div class="project-card">
       <div class="project-head">
@@ -339,14 +358,14 @@
     </div>
     <div class="project-card">
       <div class="project-head">
-        <div class="project-title">CodeAlpha &amp; Security Matrix</div>
+        <div class="project-title">CodeAlpha & Security Matrix</div>
         <div class="project-tag">Internships</div>
       </div>
       <div class="project-desc">Engaged in practical cybersecurity internships focusing on vulnerability research, security assessment reports, and threat analysis.</div>
     </div>
     <div class="project-card">
       <div class="project-head">
-        <div class="project-title">CTFs &amp; Labs Platforms</div>
+        <div class="project-title">CTFs & Labs Platforms</div>
         <div class="project-tag">Continuous Practice</div>
       </div>
       <div class="project-desc">Active problem solver on TryHackMe, Hack The Box, and PortSwigger Web Security Academy tackling realistic security challenges.</div>
@@ -354,10 +373,11 @@
   </div>
 </section>
 
+
 <section id="contact">
   <div class="section-label">Get In Touch</div>
   <div class="contact-grid">
-    <a href="mailto:bemad540@Gmail.com" class="contact-item">
+    <a href="[mailto:bemad540@Gmail.com](mailto:bemad540@Gmail.com)" class="contact-item">
       <div class="contact-icon">✉️</div>
       <div>
         <div class="contact-label">Email</div>
@@ -371,7 +391,7 @@
         <div class="contact-val">01225145969</div>
       </div>
     </a>
-    <a href="https://linkedin.com" target="_blank" class="contact-item">
+    <a href="https://linkedin.com/" target="_blank" class="contact-item">
       <div class="contact-icon">💼</div>
       <div>
         <div class="contact-label">LinkedIn</div>
@@ -381,9 +401,11 @@
   </div>
 </section>
 
+
 <footer>
-  &copy; 2026 Bahaa Emad William. All rights reserved.
+  © 2026 Bahaa Emad William. All rights reserved.
 </footer>
+
 
 </body>
 </html>
